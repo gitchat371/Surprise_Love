@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Surprise</title>
+<title>Check Match</title>
 
 <style>
 body{
   text-align:center;
-  margin-top:100px;
+  margin-top:80px;
   font-family:Arial;
-  background:#fff;
 }
 
-h1{
-  color:red;
-  font-size:40px;
+input{
+  padding:10px;
+  margin:10px;
+  width:250px;
+  font-size:16px;
 }
 
 button{
-  padding:12px 25px;
+  padding:10px 20px;
   font-size:18px;
+  background:blue;
+  color:white;
   border:none;
-  border-radius:8px;
-  margin:10px;
-  cursor:pointer;
+  border-radius:6px;
 }
 
-#yesBtn{
-  background:green;
-  color:white;
-}
-
-#noBtn{
-  background:red;
-  color:white;
-  position:absolute;
+#result{
+  margin-top:20px;
+  font-size:24px;
+  font-weight:bold;
 }
 </style>
 
@@ -41,23 +37,29 @@ button{
 
 <body>
 
-<h1>You are my Valentine ❤️</h1>
+<h2>Fill the details ❤️</h2>
 
-<button id="yesBtn" onclick="yesClicked()">YES</button>
-<button id="noBtn" onmouseover="moveButton()">NO</button>
+<input type="text" placeholder="Enter girl name" id="girl"><br>
+<input type="number" placeholder="Enter age" id="age"><br>
+<input type="text" placeholder="Enter boy name" id="boy"><br>
+
+<button onclick="checkName()">Submit</button>
+
+<div id="result"></div>
 
 <script>
 
-function yesClicked(){
-  document.body.innerHTML="<h1> ❤️ Haan Karne ki kya jarurat thi 😍</h1>";
-}
+function checkName(){
+  var boyName = document.getElementById("boy").value;
 
-function moveButton(){
-  var x = Math.random() * window.innerWidth;
-  var y = Math.random() * window.innerHeight;
-
-  document.getElementById("noBtn").style.left = x + "px";
-  document.getElementById("noBtn").style.top = y + "px";
+  if(boyName.toLowerCase() == "ankit"){
+    document.getElementById("result").innerHTML = "Ye best hai ❤️";
+    document.getElementById("result").style.color = "green";
+  }
+  else{
+    document.getElementById("result").innerHTML = "Ye galat hai ❌";
+    document.getElementById("result").style.color = "red";
+  }
 }
 
 </script>
