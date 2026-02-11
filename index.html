@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Check Match</title>
+<title>Surprise</title>
 
 <style>
 body{
   text-align:center;
-  margin-top:80px;
+  margin-top:100px;
   font-family:Arial;
+  background:#fff;
 }
 
-input{
-  padding:10px;
-  margin:10px;
-  width:250px;
-  font-size:16px;
+h1{
+  color:red;
+  font-size:40px;
 }
 
 button{
-  padding:10px 20px;
+  padding:12px 25px;
   font-size:18px;
-  background:blue;
-  color:white;
   border:none;
-  border-radius:6px;
+  border-radius:8px;
+  margin:10px;
+  cursor:pointer;
 }
 
-#result{
-  margin-top:20px;
-  font-size:24px;
-  font-weight:bold;
+#yesBtn{
+  background:green;
+  color:white;
+}
+
+#noBtn{
+  background:red;
+  color:white;
+  position:absolute;
 }
 </style>
 
@@ -37,29 +41,23 @@ button{
 
 <body>
 
-<h2>Fill the details ❤️</h2>
+<h1>You are my Valentine ❤️</h1>
 
-<input type="text" placeholder="Apna name dalo" id="girl"><br>
-<input type="number" placeholder="Apni Age dalo" id="age"><br>
-<input type="text" placeholder="Kisi Dost ka name dalo" id="boy"><br>
-
-<button onclick="checkName()">Submit</button>
-
-<div id="result"></div>
+<button id="yesBtn" onclick="yesClicked()">YES</button>
+<button id="noBtn" onmouseover="moveButton()">NO</button>
 
 <script>
 
-function checkName(){
-  var boyName = document.getElementById("boy").value;
+function yesClicked(){
+  document.body.innerHTML="<h1>Yayyy ❤️ I knew it 😍</h1>";
+}
 
-  if(boyName.toLowerCase() == "ankit"){
-    document.getElementById("result").innerHTML = "Ye best hai ❤️";
-    document.getElementById("result").style.color = "green";
-  }
-  else{
-    document.getElementById("result").innerHTML = "Ye galat hai ❌";
-    document.getElementById("result").style.color = "red";
-  }
+function moveButton(){
+  var x = Math.random() * window.innerWidth;
+  var y = Math.random() * window.innerHeight;
+
+  document.getElementById("noBtn").style.left = x + "px";
+  document.getElementById("noBtn").style.top = y + "px";
 }
 
 </script>
