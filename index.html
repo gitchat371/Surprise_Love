@@ -17,23 +17,23 @@ h1{
 }
 
 button{
-  padding:10px 20px;
+  padding:12px 25px;
   font-size:18px;
+  border:none;
+  border-radius:8px;
+  margin:10px;
+  cursor:pointer;
+}
+
+#yesBtn{
+  background:green;
+  color:white;
+}
+
+#noBtn{
   background:red;
   color:white;
-  border:none;
-  border-radius:5px;
-}
-
-.heart{
-  font-size:30px;
-  animation:blink 1s infinite;
-}
-
-@keyframes blink{
-  0%{opacity:1;}
-  50%{opacity:0;}
-  100%{opacity:1;}
+  position:absolute;
 }
 </style>
 
@@ -41,16 +41,25 @@ button{
 
 <body>
 
-<h1 id="msg">Click the button ❤️</h1>
+<h1>You are my Valentine ❤️</h1>
 
-<button onclick="showLove()">Tap here</button>
-
-<p class="heart">💖 💖 💖</p>
+<button id="yesBtn" onclick="yesClicked()">YES</button>
+<button id="noBtn" onmouseover="moveButton()">NO</button>
 
 <script>
-function showLove(){
- document.getElementById("msg").innerHTML="You are my Valentine ❤️";
+
+function yesClicked(){
+  document.body.innerHTML="<h1>Yayyy ❤️ I knew it 😍</h1>";
 }
+
+function moveButton(){
+  var x = Math.random() * window.innerWidth;
+  var y = Math.random() * window.innerHeight;
+
+  document.getElementById("noBtn").style.left = x + "px";
+  document.getElementById("noBtn").style.top = y + "px";
+}
+
 </script>
 
 </body>
